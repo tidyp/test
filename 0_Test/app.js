@@ -1,8 +1,15 @@
 import express from "express";
-import mysql from "mysql2/promise";
 import db from "./db.js";
 
 const app = express();
+
+db.execute("SELECT * FROM orders")
+  .then(([rows, fieldData]) => {
+    console.log(rows, fieldData);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const getDate = async (req, res) => {
   const a = await db.execute("SELECT * FROM orders");

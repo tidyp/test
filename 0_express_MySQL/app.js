@@ -12,7 +12,7 @@ db.execute("SELECT * FROM orders")
   });
 
 const getDate = async (req, res) => {
-  const a = await db.execute("SELECT * FROM orders");
+  const a = await db.execute("SELECT * FROM orders LIMIT 5");
   console.log(a);
 };
 getDate();
